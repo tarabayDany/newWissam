@@ -407,7 +407,7 @@ def gender():
 
     # Aggregate the data by taking the average smoking percentages and population for each country
     # agg_data = filtered_data.groupby(["Entity"]).astype(float).mean().reset_index()
-    agg_data = filtered_data.groupby(["Entity"])
+    agg_data = filtered_data.groupby(["Entity"]).mean()
 
     # Calculate the scaling factor for the size of the circles
     circle_scaling_factor = 0.00005
