@@ -406,8 +406,6 @@ def gender():
     filtered_data = filtered_data[filtered_data["Entity"] != "World"]
 
     # Aggregate the data by taking the average smoking percentages and population for each country
-    # agg_data = filtered_data.groupby(["Entity"]).astype(float).mean().reset_index()
-    # agg_data = filtered_data.groupby(["Entity"])
     agg_data = filtered_data.groupby(["Entity"])[["Population (historical estimates)", "Prevalence of current tobacco use, females (% of female adults)", "Prevalence of current tobacco use, males (% of male adults)"]].mean().reset_index()
 
 
@@ -1269,6 +1267,7 @@ if "password_entered" in st.session_state:
 if not password_entered:
     # Get the user input for the password
     st.title("Enter the Password")
+    st.header("Kindly adjust the screen zoom to 50% for better experience")
     password_input = st.text_input("", type="password")
     # password_input = st.text_input("Enter the password", type="password")
     # Check if the password is correct
