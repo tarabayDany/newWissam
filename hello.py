@@ -17,12 +17,20 @@ def gender():
 
     # Exclude the entity "World" from the filtered data
     filtered_data = filtered_data[filtered_data["Entity"] != "World"]
+    print(filtered_data)
+    print(filtered_data.dtypes)
+    agg_data = filtered_data.groupby(["Entity"])[["Population (historical estimates)", "Prevalence of current tobacco use, females (% of female adults)", "Prevalence of current tobacco use, males (% of male adults)"]].mean().reset_index()
+    print(agg_data)
     # print(filtered_data.Entity.unique())
 
     # Aggregate the data by taking the average smoking percentages and population for each country
-    agg_data = filtered_data.groupby(["Entity"]).count().reset_index()
+    # print(filtered_data.Entity.unique())
+    # print(type(filtered_data.Entity))
+    
     # print(agg_data)
-    # print(agg_data.mean())
+    # print(type(agg_data))
+    # print(agg_data)
+    
 
     # agg_data2 = agg_data.mean().reset_index()
 
