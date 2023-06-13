@@ -88,9 +88,12 @@ def risk_factors():
 
     # Read the data into a DataFrame
     # Calculate the sum of deaths by category for each year
-    sum_deaths = data.groupby(["Year", "Entity"]).sum().reset_index()
+    # num_cols = data.select_dtypes(include=['int', 'float']).columns
+    # print(num_cols)
+    sum_deaths = data.groupby(["Year", "Entity"]).sum(numeric_only=True).reset_index()
+    # sum_deaths = data.groupby(["Year"])[num_cols].sum().reset_index()
 
-    print(sum_deaths.Year.unique())
+    # print(sum_deaths.Year.unique())
 
     # Get the unique entities in the data
     entities = sum_deaths["Entity"].unique()
